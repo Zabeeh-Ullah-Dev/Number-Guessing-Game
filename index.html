@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="A thoughtful little number guessing game. Pick a number from 1 to 100 and see how quickly you can find it.">
+  <title>Number Guessing Game</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="Number Guessing Game home">
+        <span class="wordmark-mark" aria-hidden="true">?</span>
+        <span>THE GUESSING GAME</span>
+      </a>
+      <span class="edition">A little game of instinct</span>
+    </header>
+
+    <section class="game-layout" id="top" aria-labelledby="game-title">
+      <div class="intro-column">
+        <p class="eyebrow"><span class="eyebrow-line"></span> A fresh number, every round</p>
+        <h1 id="game-title">Number<br><span>Guessing</span><br>Game<span class="title-period">.</span></h1>
+        <p class="intro-copy">There’s a number between <strong>1 and 100</strong> on my mind. Can you find it in ten tries?</p>
+        <div class="range-note" aria-label="Possible numbers from 1 to 100">
+          <span>01</span><span class="range-rule"></span><span>100</span>
+        </div>
+        <p class="quiet-note">Trust your hunch. Adjust as you go.</p>
+      </div>
+
+      <section class="game-card" aria-label="Play the number guessing game">
+        <div class="card-topline">
+          <span class="round-label"><span class="live-dot" aria-hidden="true"></span> YOUR ROUND</span>
+          <span class="round-count" id="round-count">01</span>
+        </div>
+
+        <div class="attempts-block">
+          <div class="attempts-heading"><span>Attempts</span><span><strong id="attempt-count">0</strong> <span class="attempt-limit">/ 10</span></span></div>
+          <div class="attempt-track" role="progressbar" aria-label="Attempts used" aria-valuemin="0" aria-valuemax="10" aria-valuenow="0" id="attempt-progress">
+            <span class="attempt-fill" id="attempt-fill"></span>
+          </div>
+        </div>
+
+        <form id="guess-form" class="guess-form" novalidate>
+          <label for="guess-input">What’s your guess?</label>
+          <div class="input-row">
+            <input id="guess-input" name="guess" type="number" min="1" max="100" inputmode="numeric" placeholder="e.g. 42" autocomplete="off" aria-describedby="input-hint game-message">
+            <button class="guess-button" type="submit">Guess <span aria-hidden="true">↗</span></button>
+          </div>
+          <span class="input-hint" id="input-hint">Choose any whole number from 1 to 100.</span>
+        </form>
+
+        <div class="message-box" id="message-box" data-state="neutral">
+          <span class="message-icon" id="message-icon" aria-hidden="true">↳</span>
+          <p id="game-message" role="status" aria-live="polite">Your first guess is waiting.</p>
+        </div>
+
+        <div class="history-section">
+          <div class="section-heading"><h2>Your guesses</h2><span id="guess-total">0 so far</span></div>
+          <div class="guess-list" id="guess-list" aria-label="Previous guesses">
+            <span class="empty-history">They’ll show up here as you play.</span>
+          </div>
+        </div>
+
+        <div class="result-row" id="result-row" aria-live="polite">
+          <span class="result-label">PERFORMANCE</span>
+          <span class="result-value" id="performance">—</span>
+        </div>
+
+        <button class="restart-button" id="restart-button" type="button">Start a new round <span aria-hidden="true">↻</span></button>
+      </section>
+    </section>
+
+    <footer class="site-footer">
+      <span>Made for curious minds.</span>
+      <span>Take a guess <span aria-hidden="true">·</span> Find the number</span>
+    </footer>
+  </main>
+</body>
+</html>
